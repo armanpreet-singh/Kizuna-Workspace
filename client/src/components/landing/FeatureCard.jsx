@@ -1,25 +1,16 @@
+
 import Card from "../ui/Card";
 
-/**
- * FeatureCard Component
- *
- * @param {React.ElementType} icon - A Lucide React icon component
- * @param {string} title - The name of the feature
- * @param {string} description - A brief explanation of the feature
- * @param {string} className - Additional custom classes
- */
 const FeatureCard = ({ icon: Icon, title, description, className = "" }) => {
   return (
-    <Card hover padding="lg" className={`h-full ${className}`}>
-      {/* Icon Container */}
-      <div className="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
+    <Card padding="lg" className={`group h-full ${className}`}>
+      {/* Icon Container with Hover Micro-interaction */}
+      <div className="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4 transition-all duration-300 ease-out group-hover:bg-indigo-100 group-hover:scale-110">
         <Icon className="w-5 h-5" strokeWidth={2} />
       </div>
 
-      {/* Feature Title */}
       <h3 className="text-lg font-semibold text-slate-900 leading-tight">{title}</h3>
 
-      {/* Feature Description */}
       <p className="mt-2 text-sm text-slate-500 leading-relaxed">{description}</p>
     </Card>
   );
