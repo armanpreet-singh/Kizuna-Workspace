@@ -1,79 +1,59 @@
-import {
-  MessageSquare,
-  Hash,
-  Users,
-  Paperclip,
-  ShieldCheck,
-  Bell,
-  Search,
-  Radio,
-} from "lucide-react";
+import { Zap, GitBranch, HardDrive, ShieldCheck, Bell, Command } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
 import FeatureCard from "./FeatureCard";
 
 const FeaturesSection = () => {
-  // Feature data structured for easy content management
   const features = [
     {
-      icon: MessageSquare,
-      title: "Real-Time Messaging",
+      icon: Zap,
+      title: "Sub-100ms Delivery",
       description:
-        "Instant delivery with sub-100ms latency. Messages appear the moment they are typed.",
+        "Messages appear the instant they are typed. Our event-driven architecture ensures zero perceptible latency.",
     },
     {
-      icon: Hash,
-      title: "Organized Channels",
+      icon: GitBranch,
+      title: "Threaded Context",
       description:
-        "Dedicated spaces for teams, projects, and topics to keep conversations structured.",
+        "Keep main channels clean. Branch off into focused threads without losing the narrative of the parent conversation.",
     },
     {
-      icon: Users,
-      title: "Group Chat",
-      description: "Seamless private and group messaging tailored for both small and large teams.",
-    },
-    {
-      icon: Paperclip,
-      title: "File Sharing",
-      description: "Drag, drop, and share documents, images, and videos without size limitations.",
+      icon: HardDrive,
+      title: "Native File Ecosystem",
+      description:
+        "Drag, drop, and preview without leaving the app. Built-in rendering for code snippets, Figma files, and media.",
     },
     {
       icon: ShieldCheck,
-      title: "Secure Auth",
+      title: "Zero-Knowledge Architecture",
       description:
-        "Enterprise-grade security with end-to-end encryption and advanced access controls.",
+        "E2E encryption by default. We cannot read your messages, and we never will. Your data belongs to you.",
     },
     {
       icon: Bell,
-      title: "Smart Notifications",
+      title: "Contextual Alerts",
       description:
-        "Intelligent alert system that respects your focus time and highlights what matters.",
+        "Smart notification routing that understands your role and current focus, batching noise into a single daily digest.",
     },
     {
-      icon: Search,
-      title: "Universal Search",
-      description: "Find any message, file, or user across your entire workspace in milliseconds.",
-    },
-    {
-      icon: Radio,
-      title: "User Presence",
-      description: "See who is online, idle, or in a call without interrupting their workflow.",
+      icon: Command,
+      title: "Command Palette",
+      description:
+        "Navigate channels, search files, or execute actions instantly using keyboard-first commands (Cmd+K).",
     },
   ];
 
   return (
     <section id="features" className="py-20 sm:py-32 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <SectionHeading
-          eyebrow="Features"
-          title="Everything you need to collaborate"
-          subtitle="Kizuna combines the speed of real-time chat with the organizational power of a modern workspace, without the clutter."
+          eyebrow="Capabilities"
+          title="Tools that disappear so you can focus"
+          subtitle="We stripped away the bloat found in legacy chat apps. What remains is a refined set of tools designed to accelerate your team's workflow."
           align="center"
           className="mb-16"
         />
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature) => (
             <FeatureCard
               key={feature.title}
