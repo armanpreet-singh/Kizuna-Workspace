@@ -43,7 +43,8 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section id="features" className="py-20 sm:py-32 bg-slate-50 dark:bg-slate-900/50">
+    // Removed muddy slate-900/50. Inherits the clean slate-900 base from App.jsx in dark mode.
+    <section id="features" className="py-20 sm:py-32 bg-slate-50 dark:bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Capabilities"

@@ -4,26 +4,30 @@ const ThemeContext = createContext(undefined);
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // 1. Check localStorage first
+    // 1. Safely check if we are in the browser
     if (typeof window !== "undefined") {
+      // 2. Check localStorage, but VALIDATE the value to prevent corruption bugs
       const storedTheme = localStorage.getItem("kizuna-theme");
-      if (storedTheme) return storedTheme;
+      if (storedTheme === "dark" || storedTheme === "light") {
+        return storedTheme;
+      }
+
+      // 3. Respect system preference if no valid stored preference exists
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
     }
-    // 2. Respect system preference if no stored preference
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    // 3. Fallback to light
+    // 4. Ultimate fallback
     return "light";
   });
 
   useEffect(() => {
     const root = window.document.documentElement;
 
-    // Remove both classes first to prevent conflicts
+    // Remove both classes first to prevent conflicts from legacy browser behaviors
     root.classList.remove("light", "dark");
 
-    // Add the active theme class (required for Tailwind darkMode: 'class')
+    // Apply the active theme class (Required for Tailwind darkMode: 'class')
     root.classList.add(theme);
 
     // Persist to localStorage
