@@ -1,11 +1,9 @@
-
 import { ArrowRight } from "lucide-react";
 import Button from "../ui/Button";
 
 const CTASection = () => {
   return (
-    <section className="relative py-24 sm:py-32 bg-slate-900 overflow-hidden">
-      {/* Technical Dot-Grid Background Pattern */}
+    <section className="relative py-24 sm:py-32 bg-slate-900 dark:bg-slate-800/50 border-y border-slate-900 dark:border-slate-700/50 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.15]"
         style={{
@@ -14,27 +12,20 @@ const CTASection = () => {
         }}
         aria-hidden="true"
       />
-
-      {/* Subtle Center Glow for depth */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-indigo-600/20 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Headline */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
           Stop fighting your tools.
           <br className="hidden sm:block" /> Start building together.
         </h2>
-
-        {/* Supporting Description */}
-        <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
+        <p className="mt-6 text-lg text-slate-400 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
           Migrate your team in minutes. Kizuna's import tool seamlessly pulls your channels,
           history, and files from Slack, Discord, and Telegram—so you don't lose a single thread.
         </p>
-
-        {/* CTA Group */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             variant="primary"
@@ -45,12 +36,11 @@ const CTASection = () => {
             Get Started for Free
             <ArrowRight className="w-4 h-4" />
           </Button>
-
           <Button
             variant="ghost"
             size="lg"
             href="#contact"
-            className="text-slate-400 border border-slate-700 hover:bg-slate-800/50 hover:text-white hover:border-slate-600"
+            className="text-slate-400 dark:text-slate-300 border border-slate-700 dark:border-slate-600 hover:bg-slate-800/50 hover:text-white hover:border-slate-600 dark:hover:bg-slate-700/50"
           >
             Talk to Sales
           </Button>
