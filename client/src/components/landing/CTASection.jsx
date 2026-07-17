@@ -2,10 +2,10 @@ import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="relative py-spacing-section-m bg-surface-high overflow-hidden">
-      {/* Subtle radial gradient to draw focus to the center */}
+    <section className="relative py-spacing-section-m bg-surface-bg border-t border-border-default overflow-hidden">
+      {/* Rich, atmospheric radial gradient to create visual gravity */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-primary/5 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
 
@@ -22,23 +22,28 @@ const CTASection = () => {
           history, and files from Slack, Discord, and Telegram—so you don't lose a single thread.
         </p>
 
-        {/* CTA Group */}
+        {/* CTA Group - Enlarged primary button for visual dominance */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#register"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 text-body-base font-medium text-surface-base bg-brand-primary hover:opacity-90 rounded-lg transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-high"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-body-lg font-medium text-surface-base bg-brand-primary hover:opacity-90 rounded-lg transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-bg"
           >
             Get Started for Free
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-5 h-5" />
           </a>
 
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-8 py-3 text-body-base font-medium text-typography-secondary border border-border-default hover:bg-surface-bg hover:text-typography-primary rounded-lg transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-high"
+            className="inline-flex items-center justify-center px-8 py-4 text-body-base font-medium text-typography-secondary border border-border-default hover:bg-surface-high hover:text-typography-primary rounded-lg transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-bg"
           >
             Talk to Sales
           </a>
         </div>
+
+        {/* Trust Messaging - Reduces friction */}
+        <p className="mt-6 text-caption text-typography-secondary">
+          No credit card required. Free for small teams.
+        </p>
       </div>
     </section>
   );
