@@ -1,4 +1,4 @@
-import { ArrowRight, Play, Paperclip, Smile, Send } from "lucide-react";
+import { ArrowRight, Play, Paperclip, Smile, Send, CheckCheck } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -10,7 +10,7 @@ const Hero = () => {
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Text Content */}
+        {/* Text Content - Product Definition First */}
         <div className="max-w-3xl mx-auto text-center">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-primary/30 bg-brand-primary/10 mb-8">
@@ -20,32 +20,32 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Headline - Display XL (64px) */}
+          {/* Headline - Display XL (64px) - Defines the product instantly */}
           <h1 className="text-display-xl font-bold text-typography-primary tracking-tight leading-[1.1]">
-            Chat should accelerate{" "}
+            The chat platform for{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">
-              your work
+              focused teams
             </span>
           </h1>
 
-          {/* Subheadline - Body LG (16px) */}
+          {/* Subheadline - Contrasts against the status quo */}
           <p className="mt-6 text-body-lg leading-relaxed text-typography-secondary max-w-2xl mx-auto">
-            Kizuna brings your team's conversations, files, and tools into one fast,
-            distraction-free workspace. Built for clarity, not clutter.
+            Kizuna replaces noisy channels with organized, real-time conversations. Less clutter,
+            more context, faster decisions.
           </p>
 
-          {/* CTA Group */}
+          {/* CTA Group - Clear hierarchy */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#register"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-surface-base bg-brand-primary hover:opacity-90 rounded-lg transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-bg"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-body-base font-medium text-surface-base bg-brand-primary hover:opacity-90 rounded-lg transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-bg"
             >
               Try Kizuna Free
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#preview"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-typography-secondary hover:text-typography-primary hover:bg-surface-high rounded-lg transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-bg"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-body-base font-medium text-typography-secondary hover:text-typography-primary hover:bg-surface-high rounded-lg transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-bg"
             >
               <Play className="w-4 h-4" />
               See how it works
@@ -53,7 +53,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Realistic Kizuna Application Preview */}
+        {/* Realistic Kizuna Application Preview - "Live" State */}
         <div className="relative mt-16 sm:mt-20 max-w-6xl mx-auto">
           <div className="bg-surface-base rounded-2xl shadow-2xl border border-border-default overflow-hidden">
             <div className="flex h-[350px] sm:h-[500px] text-typography-secondary">
@@ -84,9 +84,9 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Messages Area */}
+                {/* Messages Area - Enhanced for "Live" feeling */}
                 <div className="flex-1 p-6 flex flex-col gap-5 overflow-hidden">
-                  {/* Message with File Attachment */}
+                  {/* Message with Thread Preview & Reaction */}
                   <div className="flex gap-3">
                     <div
                       className="w-8 h-8 rounded-full bg-brand-primary/20 border border-brand-primary/30 flex-shrink-0 flex items-center justify-center text-[10px] text-brand-primary font-bold"
@@ -102,26 +102,40 @@ const Hero = () => {
                         <span className="text-caption text-state-muted">10:42 AM</span>
                       </div>
                       <p className="text-body-base text-typography-secondary mt-1">
-                        Just pushed the new auth flow. Uploading the Figma file.
+                        Just pushed the new auth flow to staging.
                       </p>
-                      <div className="mt-2 w-fit bg-surface-high border border-border-default rounded-lg p-2 flex items-center gap-2">
-                        <div
-                          className="w-8 h-8 bg-brand-accent/20 rounded flex items-center justify-center text-brand-accent text-caption font-bold"
-                          aria-hidden="true"
-                        >
-                          FIG
-                        </div>
-                        <div>
-                          <p className="text-body-base text-typography-primary font-medium">
-                            ui-v2-auth.fig
-                          </p>
-                          <p className="text-caption text-state-muted">2.4 MB</p>
-                        </div>
+
+                      {/* Live Interaction 1: Message Reaction */}
+                      <div className="mt-1.5 flex items-center gap-2">
+                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-surface-high border border-border-default rounded-md text-caption text-typography-secondary">
+                          👀 2
+                        </span>
                       </div>
+
+                      {/* Live Interaction 2: Inline Thread Preview */}
+                      <a
+                        href="#"
+                        className="mt-2 inline-flex items-center gap-1.5 px-2 py-1 bg-surface-high hover:bg-state-hover border border-border-default rounded-lg text-caption text-brand-primary font-medium transition-colors duration-300"
+                      >
+                        <svg
+                          className="w-3 h-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                          />
+                        </svg>
+                        View 3 replies
+                      </a>
                     </div>
                   </div>
 
-                  {/* Self Message */}
+                  {/* Self Message with Read Receipt */}
                   <div className="flex gap-3 self-end max-w-[70%]">
                     <div className="flex-1 flex flex-col items-end">
                       <div className="bg-brand-primary/20 border border-brand-primary/30 rounded-xl rounded-tr-sm px-4 py-2.5">
@@ -129,7 +143,14 @@ const Hero = () => {
                           Looks great. I'll run the integration tests now.
                         </p>
                       </div>
-                      <span className="text-caption text-state-muted mt-1 mr-1">10:44 AM</span>
+                      {/* Live Interaction 3: Read Receipts */}
+                      <div className="flex items-center gap-1.5 mt-1 mr-1">
+                        <CheckCheck
+                          className="w-3.5 h-3.5 text-brand-accent"
+                          aria-label="Read by all recipients"
+                        />
+                        <span className="text-caption text-state-muted">10:44 AM</span>
+                      </div>
                     </div>
                     <div
                       className="w-8 h-8 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex-shrink-0 flex items-center justify-center text-[10px] text-brand-accent font-bold"
