@@ -1,28 +1,18 @@
 
 
-const Card = ({ children, padding = "md", hover = false, className = "" }) => {
-  // Padding tokens mapped to Design System spacing scale
-  const paddingStyles = {
-    sm: "p-4",
-    md: "p-6",
-    lg: "p-8",
-  };
-
-  // Base styles mapped to STRICTLY OPAQUE surface layers
-  const baseStyles = `
-    bg-white dark:bg-slate-800 
-    rounded-xl 
-    border border-slate-200 dark:border-slate-700 
-    shadow-sm
-    ${paddingStyles[padding] || paddingStyles.md}
-  `.trim();
-
-  // Hover styles: Rely on border lightness for dark mode elevation
-  const hoverStyles = hover
-    ? "transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-1 hover:border-slate-300 dark:hover:border-slate-600 dark:hover:shadow-black/40"
-    : "";
-
-  return <div className={`${baseStyles} ${hoverStyles} ${className}`}>{children}</div>;
+const Card = ({ children, className = "", hover = false, ...props }) => {
+  return (
+    <div
+      className={`bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 rounded-2xl ${
+        hover
+          ? "hover:border-gray-300 dark:hover:border-white/20 hover:shadow-lg dark:hover:shadow-black/20 transition-all duration-300"
+          : ""
+      } ${className}`}
+      {...props}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default Card;
