@@ -1,43 +1,50 @@
-const MobileMenu = ({ isOpen, onClose, links }) => {
-  return (
-    <div
-      id="mobile-menu"
-      className={`md:hidden absolute top-full left-0 right-0 bg-surface-base border-b border-border-default transform transition-all duration-300 ease-in-out origin-top ${
-        isOpen
-          ? "opacity-100 translate-y-0 pointer-events-auto"
-          : "opacity-0 -translate-y-2 pointer-events-none"
-      }`}
-      aria-hidden={!isOpen}
-    >
-      <div className="px-4 py-4 space-y-3">
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            onClick={onClose}
-            target={link.external ? "_blank" : undefined}
-            rel={link.external ? "noopener noreferrer" : undefined}
-            className="block text-base font-medium text-typography-secondary hover:text-typography-primary py-2 transition-colors duration-300"
-          >
-            {link.label}
-          </a>
-        ))}
+import { useEffect } from "react";
+import { X } from "lucide-react";
+import NavLinks from "./NavLinks";
+import Logo from "./Logo";
+import Button from "../ui/Button";
 
-        <div className="pt-4 border-t border-border-default flex flex-col gap-2">
-          <a
-            href="#login"
+const MobileMenu = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 md:hidden">
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute top-0 left-0 right-0 bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-white/10 shadow-xl">
+        <div className="flex items-center justify-between px-4 py-4">
+          <Logo />
+          <button
             onClick={onClose}
-            className="flex items-center justify-center px-4 py-2.5 text-sm font-medium text-typography-primary bg-surface-high hover:bg-state-hover rounded-lg transition-colors duration-300"
+            className="p-2 rounded-lg text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
           >
-            Login
-          </a>
-          <a
-            href="#register"
-            onClick={onClose}
-            className="flex items-center justify-center px-4 py-2.5 text-sm font-medium text-surface-base bg-brand-primary hover:opacity-90 rounded-lg transition-opacity duration-300"
-          >
-            Get Started
-          </a>
+            <X size={20} />
+          </button>
+        </div>
+        <div className="px-4 py-4 border-t border-gray-100 dark:border-white/5">
+          <NavLinks mobile onClose={onClose} />
+          <div className="mt-6 flex flex-col gap-3">
+            <a
+              href="#"
+              className="w-full text-center px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+              onClick={onClose}
+            >
+              Sign in
+            </a>
+            <Button variant="primary" size="sm" className="w-full justify-center">
+              Get started free
+            </Button>
+          </div>
         </div>
       </div>
     </div>
