@@ -1,30 +1,27 @@
-
-
-/**
- * SectionHeading Component
- *
- * @param {string} eyebrow - Small accent text above the title (e.g., "Features")
- * @param {string} title - The main heading (H2 level)
- * @param {string} subtitle - Supporting descriptive text below the title
- * @param {'left' | 'center'} align - Text alignment, defaults to left
- * @param {string} className - Additional custom classes for the wrapper
- */
-const SectionHeading = ({ eyebrow, title, subtitle, align = "left", className = "" }) => {
-  const alignmentClasses = align === "center" ? "text-center mx-auto" : "text-left";
-
+const SectionHeading = ({ eyebrow, title, description, centered = false, className = "" }) => {
   return (
-    <div className={`max-w-2xl ${alignmentClasses} ${className}`}>
+    <div className={`${centered ? "text-center" : ""} ${className}`}>
       {eyebrow && (
-        <p className="text-xs font-medium tracking-widest text-indigo-600 uppercase mb-4">
+        <div
+          className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-violet-600 dark:text-violet-400 mb-4`}
+        >
+          <span className="w-5 h-px bg-violet-500" />
           {eyebrow}
-        </p>
+          <span className="w-5 h-px bg-violet-500" />
+        </div>
       )}
-
-      <h2 className="text-3xl font-semibold text-slate-900 tracking-tight leading-tight">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
         {title}
       </h2>
-
-      {subtitle && <p className="text-base text-slate-500 leading-relaxed mt-4">{subtitle}</p>}
+      {description && (
+        <p
+          className={`mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed ${
+            centered ? "max-w-2xl mx-auto" : "max-w-2xl"
+          }`}
+        >
+          {description}
+        </p>
+      )}
     </div>
   );
 };
