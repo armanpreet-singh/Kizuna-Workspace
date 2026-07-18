@@ -1,72 +1,85 @@
-import { Zap, GitBranch, HardDrive, ShieldCheck, Bell, Command } from "lucide-react";
+import { MessageSquare, Users, Hash, Bell, Paperclip, Zap, GitBranch, Shield } from "lucide-react";
 import FeatureCard from "./FeatureCard";
+import SectionHeading from "../ui/SectionHeading";
+import RevealOnScroll from "../ui/RevealOnScroll";
+
+const features = [
+  {
+    icon: MessageSquare,
+    title: "Real-time Messaging",
+    description:
+      "Instant, low-latency messaging powered by WebSockets. Every message delivered in milliseconds.",
+    gradient: "from-violet-500 to-purple-600",
+  },
+  {
+    icon: Users,
+    title: "Teams & Workspaces",
+    description:
+      "Organize your company into workspaces and teams. Keep every conversation where it belongs.",
+    gradient: "from-blue-500 to-indigo-600",
+  },
+  {
+    icon: Hash,
+    title: "Channels",
+    description:
+      "Public and private channels for every project, topic, or team. Stay focused and organized.",
+    gradient: "from-emerald-500 to-teal-600",
+  },
+  {
+    icon: GitBranch,
+    title: "Threaded Conversations",
+    description:
+      "Reply in threads to keep discussions organized without cluttering your main channels.",
+    gradient: "from-orange-500 to-red-500",
+  },
+  {
+    icon: Bell,
+    title: "Smart Notifications",
+    description:
+      "Intelligent notification system that knows when to surface important messages and when to stay quiet.",
+    gradient: "from-pink-500 to-rose-600",
+  },
+  {
+    icon: Paperclip,
+    title: "File Sharing",
+    description:
+      "Share images, documents, and files instantly. Preview inline without leaving the conversation.",
+    gradient: "from-amber-500 to-orange-600",
+  },
+  {
+    icon: Zap,
+    title: "Presence Indicators",
+    description:
+      "Always know who is online, away, or in focus mode. Respect your team's time and attention.",
+    gradient: "from-cyan-500 to-blue-600",
+  },
+  {
+    icon: Shield,
+    title: "Enterprise Security",
+    description:
+      "End-to-end encryption, SSO, SAML, audit logs, and compliance tools built for modern enterprises.",
+    gradient: "from-violet-600 to-indigo-700",
+  },
+];
 
 const FeaturesSection = () => {
-  const features = [
-    {
-      icon: Zap,
-      title: "Sub-100ms Delivery",
-      description:
-        "Messages appear the instant they are typed. Our event-driven architecture ensures zero perceptible latency.",
-    },
-    {
-      icon: GitBranch,
-      title: "Threaded Context",
-      description:
-        "Keep main channels clean. Branch off into focused threads without losing the narrative of the parent conversation.",
-    },
-    {
-      icon: HardDrive,
-      title: "Native File Ecosystem",
-      description:
-        "Drag, drop, and preview without leaving the app. Built-in rendering for code snippets, Figma files, and media.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Zero-Knowledge Architecture",
-      description:
-        "E2E encryption by default. We cannot read your messages, and we never will. Your data belongs to you.",
-    },
-    {
-      icon: Bell,
-      title: "Contextual Alerts",
-      description:
-        "Smart notification routing that understands your role and current focus, batching noise into a single daily digest.",
-    },
-    {
-      icon: Command,
-      title: "Command Palette",
-      description:
-        "Navigate channels, search files, or execute actions instantly using keyboard-first commands (Cmd+K).",
-    },
-  ];
-
   return (
-    <section id="features" className="py-spacing-section-l bg-surface-bg">
+    <section id="features" className="py-24 md:py-32 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <p className="text-caption font-medium tracking-widest text-brand-primary uppercase mb-4">
-            Capabilities
-          </p>
-          <h2 className="text-display-l font-semibold text-typography-primary tracking-tight leading-tight">
-            Tools that disappear so you can focus
-          </h2>
-          <p className="mt-4 text-body-lg text-typography-secondary leading-relaxed">
-            We stripped away the bloat found in legacy chat apps. What remains is a refined set of
-            tools designed to accelerate your team's workflow.
-          </p>
-        </div>
+        <RevealOnScroll direction="up">
+          <SectionHeading
+            eyebrow="Features"
+            title="Everything your team needs"
+            description="Kizuna combines powerful communication tools with the simplicity your team deserves. No bloat, no complexity."
+            centered
+          />
+        </RevealOnScroll>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <FeatureCard
-              key={feature.title}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {features.map((feature, i) => (
+            <RevealOnScroll key={feature.title} delay={i * 60} direction="up">
+              <FeatureCard {...feature} />
+            </RevealOnScroll>
           ))}
         </div>
       </div>
