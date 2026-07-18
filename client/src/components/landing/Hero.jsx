@@ -1,250 +1,254 @@
-import { ArrowRight, Play, Paperclip, Smile, Send, CheckCheck } from "lucide-react";
+import { ArrowRight, Zap, Users, MessageSquare } from "lucide-react";
+import Button from "../ui/Button";
 
+import FadeIn from "../ui/FadeIn";
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden pt-spacing-section-m pb-spacing-section-s">
-      {/* Subtle radial gradient background effect using brand colors */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-violet-50/30 dark:from-gray-950 dark:via-gray-950 dark:to-violet-950/20" />
+
+      {/* Grid pattern */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-brand-primary/10 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.07]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.5) 1px, transparent 1px), linear-gradient(to right, rgba(139, 92, 246, 0.5) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Text Content - Immediate, action-oriented positioning */}
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-primary/30 bg-brand-primary/10 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary" aria-hidden="true"></span>
-            <span className="text-caption font-medium tracking-wide text-brand-primary">
-              Now in Public Beta
+      {/* Gradient orbs */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-violet-400/10 dark:bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-400/10 dark:bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-violet-300/10 dark:bg-violet-700/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
+        {/* Eyebrow badge */}
+        <FadeIn delay={100}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm mb-8">
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
+            </span>
+            <span className="text-sm text-gray-600 dark:text-gray-400">
+              Now in public beta —{" "}
+              <span className="text-violet-600 dark:text-violet-400 font-medium">
+                join 10,000+ teams
+              </span>
             </span>
           </div>
+        </FadeIn>
 
-          {/* Headline - Action-oriented, problem-solving */}
-          <h1 className="text-display-xl font-bold text-typography-primary tracking-tight leading-[1.1]">
-            Bring order to{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">
-              team communication
+        {/* Headline */}
+        <FadeIn delay={200}>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] text-gray-900 dark:text-white">
+            Where great
+            <br />
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 dark:from-violet-400 dark:via-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                teams connect
+              </span>
+              <span className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent" />
             </span>
           </h1>
+        </FadeIn>
 
-          {/* Subheadline - Mechanism and outcome */}
-          <p className="mt-6 text-body-lg leading-relaxed text-typography-secondary max-w-2xl mx-auto">
-            Move faster with less noise. Kizuna organizes your team's conversations, files, and
-            tools into one focused, real-time workspace.
+        {/* Subheadline */}
+        <FadeIn delay={350}>
+          <p className="mt-8 text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Kizuna brings your team together with real-time messaging, organized workspaces, and
+            powerful collaboration tools — built for the way modern teams work.
           </p>
+        </FadeIn>
 
-          {/* CTA Group - Clear hierarchy */}
+        {/* CTA buttons */}
+        <FadeIn delay={500}>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#register"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-body-base font-medium text-surface-base bg-brand-primary hover:opacity-90 rounded-lg transition-opacity duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-bg shadow-sm hover:shadow-md"
-            >
-              Try Kizuna Free
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="#preview"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-body-base font-medium text-typography-secondary hover:text-typography-primary hover:bg-surface-high rounded-lg transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-bg"
-            >
-              <Play className="w-4 h-4" />
+            <Button variant="primary" size="lg" className="w-full sm:w-auto">
+              Start for free
+              <ArrowRight size={18} />
+            </Button>
+            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
               See how it works
-            </a>
+            </Button>
           </div>
-        </div>
+          <p className="mt-4 text-sm text-gray-500 dark:text-gray-500">
+            No credit card required · Free up to 10 members
+          </p>
+        </FadeIn>
 
-        {/* Realistic Kizuna Application Preview 
-            Staggered reveal: Delays appearance by 150ms to guide the user's 
-            eye from the headline down to the product proof.
-        */}
-        <div
-          className="relative mt-16 sm:mt-20 max-w-6xl mx-auto opacity-0 translate-y-1.5 animate-[fadeInUp_300ms_ease-out_150ms_forwards]"
-          aria-hidden="false"
-        >
-          <div className="bg-surface-base rounded-2xl shadow-2xl border border-border-default overflow-hidden">
-            <div className="flex h-[350px] sm:h-[500px] text-typography-secondary">
-              {/* Left Sidebar: Channels */}
-              <div className="hidden sm:flex flex-col w-60 border-r border-border-default bg-surface-base p-4 gap-1">
-                <div className="h-4 w-3/4 bg-surface-high rounded mb-4" aria-hidden="true"></div>
+        {/* Social proof mini stats */}
+        <FadeIn delay={650}>
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-8">
+            {[
+              { icon: Users, label: "10,000+ teams", color: "text-violet-500" },
+              {
+                icon: MessageSquare,
+                label: "2M+ messages daily",
+                color: "text-indigo-500",
+              },
+              { icon: Zap, label: "99.9% uptime SLA", color: "text-purple-500" },
+            ].map(({ icon: Icon, label, color }) => (
+              <div
+                key={label}
+                className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <Icon size={16} className={color} />
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
 
-                <div className="flex items-center gap-2 px-2 py-1.5 rounded bg-surface-high text-typography-primary text-body-base font-medium">
-                  <span className="text-typography-secondary">#</span> general
+        {/* Hero visual */}
+        <FadeIn delay={800} direction="up">
+          <div className="mt-20 relative mx-auto max-w-5xl">
+            {/* Glow effect behind preview */}
+            <div className="absolute -inset-4 bg-gradient-to-t from-violet-500/20 to-transparent rounded-3xl blur-2xl" />
+
+            {/* Mock UI preview */}
+            <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl shadow-gray-900/10 dark:shadow-black/40 bg-white dark:bg-gray-900">
+              {/* Window chrome */}
+              <div className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-white/10">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <div className="w-3 h-3 rounded-full bg-green-400" />
                 </div>
-                <div className="flex items-center gap-2 px-2 py-1.5 rounded text-body-base">
-                  <span className="text-state-muted">#</span> design
-                </div>
-                <div className="flex items-center gap-2 px-2 py-1.5 rounded bg-brand-primary/10 text-brand-primary text-body-base font-medium border border-brand-primary/20">
-                  <span className="text-brand-primary/70">#</span> engineering
-                  <span className="ml-auto bg-state-danger text-surface-base text-[10px] font-bold px-1.5 rounded-full">
-                    3
-                  </span>
+                <div className="flex-1 mx-4">
+                  <div className="mx-auto w-48 h-5 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center justify-center">
+                    <span className="text-xs text-gray-500 dark:text-gray-400">app.kizuna.io</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Center: Chat Window */}
-              <div className="flex-1 flex flex-col bg-surface-bg">
-                <div className="h-14 border-b border-border-default px-6 flex items-center justify-between flex-shrink-0 bg-surface-base">
-                  <div className="flex items-center gap-2 text-body-base font-medium text-typography-primary">
-                    <span className="text-typography-secondary text-lg">#</span> engineering
-                  </div>
-                </div>
-
-                <div className="flex-1 p-6 flex flex-col gap-5 overflow-hidden">
-                  <div className="flex gap-3">
-                    <div
-                      className="w-8 h-8 rounded-full bg-brand-primary/20 border border-brand-primary/30 flex-shrink-0 flex items-center justify-center text-[10px] text-brand-primary font-bold"
-                      aria-hidden="true"
-                    >
-                      SC
+              {/* App preview content */}
+              <div className="flex h-[340px] md:h-[420px]">
+                {/* Sidebar */}
+                <div className="hidden sm:flex flex-col w-56 bg-gray-900 dark:bg-gray-950 border-r border-white/5 p-3">
+                  <div className="flex items-center gap-2 px-2 py-2 mb-4">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">K</span>
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-body-base font-semibold text-typography-primary">
-                          Sarah C.
-                        </span>
-                        <span className="text-caption text-state-muted">10:42 AM</span>
-                      </div>
-                      <p className="text-body-base text-typography-secondary mt-1">
-                        Just pushed the new auth flow to staging.
-                      </p>
-                      <div className="mt-1.5 flex items-center gap-2">
-                        <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-surface-high border border-border-default rounded-md text-caption text-typography-secondary">
-                          👀 2
-                        </span>
-                      </div>
-                      <a
-                        href="#"
-                        className="mt-2 inline-flex items-center gap-1.5 px-2 py-1 bg-surface-high hover:bg-state-hover border border-border-default rounded-lg text-caption text-brand-primary font-medium transition-colors duration-300"
+                    <span className="text-white text-sm font-semibold">Acme Corp</span>
+                  </div>
+
+                  <div className="space-y-0.5">
+                    {["# general", "# design", "# engineering", "# product"].map((ch, i) => (
+                      <div
+                        key={ch}
+                        className={`px-2 py-1.5 rounded-md text-xs cursor-pointer transition-colors ${
+                          i === 0
+                            ? "bg-white/10 text-white"
+                            : "text-gray-400 hover:text-gray-300 hover:bg-white/5"
+                        }`}
                       >
-                        <svg
-                          className="w-3 h-3"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                        {ch}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 pt-4 border-t border-white/10 space-y-0.5">
+                    <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                      Direct Messages
+                    </div>
+                    {[
+                      { name: "Sarah K.", online: true },
+                      { name: "Marcus L.", online: true },
+                      { name: "Priya R.", online: false },
+                    ].map(({ name, online }) => (
+                      <div
+                        key={name}
+                        className="flex items-center gap-2 px-2 py-1.5 rounded-md text-xs text-gray-400 hover:text-gray-300 hover:bg-white/5 cursor-pointer"
+                      >
+                        <div className="relative">
+                          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-violet-400 to-indigo-500" />
+                          <div
+                            className={`absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full border border-gray-900 ${
+                              online ? "bg-emerald-400" : "bg-gray-600"
+                            }`}
                           />
-                        </svg>
-                        View 3 replies
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3 self-end max-w-[70%]">
-                    <div className="flex-1 flex flex-col items-end">
-                      <div className="bg-brand-primary/20 border border-brand-primary/30 rounded-xl rounded-tr-sm px-4 py-2.5">
-                        <p className="text-body-base text-typography-primary">
-                          Looks great. I'll run the integration tests now.
-                        </p>
+                        </div>
+                        {name}
                       </div>
-                      <div className="flex items-center gap-1.5 mt-1 mr-1">
-                        <CheckCheck
-                          className="w-3.5 h-3.5 text-brand-accent"
-                          aria-label="Read by all recipients"
-                        />
-                        <span className="text-caption text-state-muted">10:44 AM</span>
-                      </div>
-                    </div>
-                    <div
-                      className="w-8 h-8 rounded-full bg-brand-accent/20 border border-brand-accent/30 flex-shrink-0 flex items-center justify-center text-[10px] text-brand-accent font-bold"
-                      aria-hidden="true"
-                    >
-                      MJ
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3 items-center">
-                    <div
-                      className="w-8 h-8 rounded-full bg-surface-high flex-shrink-0"
-                      aria-hidden="true"
-                    ></div>
-                    <div
-                      className="bg-surface-high border border-border-default rounded-xl px-4 py-3 flex items-center gap-1.5"
-                      aria-label="Elena is typing"
-                    >
-                      <div className="w-1.5 h-1.5 bg-state-muted rounded-full animate-bounce"></div>
-                      <div className="w-1.5 h-1.5 bg-state-muted rounded-full animate-bounce"></div>
-                      <div className="w-1.5 h-1.5 bg-state-muted rounded-full animate-bounce"></div>
-                    </div>
+                    ))}
                   </div>
                 </div>
 
-                <div className="p-4 border-t border-border-default bg-surface-base">
-                  <div className="flex items-center gap-3 bg-surface-high border border-border-default rounded-lg px-4 py-2.5">
-                    <Paperclip className="w-4 h-4 text-state-muted" aria-hidden="true" />
-                    <span className="text-body-base text-state-muted flex-1">
-                      Message #engineering...
+                {/* Main chat */}
+                <div className="flex-1 flex flex-col">
+                  {/* Channel header */}
+                  <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-white/5">
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                      # general
                     </span>
-                    <Smile className="w-5 h-5 text-state-muted" aria-hidden="true" />
-                    <Send className="w-5 h-5 text-state-muted" aria-hidden="true" />
+                    <span className="text-xs text-gray-400">·</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                      Team announcements and general discussion
+                    </span>
                   </div>
-                </div>
-              </div>
 
-              <div className="hidden lg:flex flex-col w-56 border-l border-border-default bg-surface-base p-4 gap-3">
-                <span className="text-caption font-semibold text-state-muted uppercase tracking-wider mb-2">
-                  Online — 3
-                </span>
-                <div className="flex items-center gap-2">
-                  <div
-                    className="relative w-6 h-6 rounded-full bg-brand-primary/20 flex items-center justify-center text-[8px] text-brand-primary font-bold"
-                    aria-hidden="true"
-                  >
-                    SC
+                  {/* Messages */}
+                  <div className="flex-1 overflow-hidden px-4 py-4 space-y-4">
+                    {[
+                      {
+                        name: "Sarah K.",
+                        avatar: "from-pink-400 to-rose-500",
+                        time: "10:32 AM",
+                        msg: "Hey team 👋 Just pushed the new design tokens to Figma. Ready for review!",
+                      },
+                      {
+                        name: "Marcus L.",
+                        avatar: "from-blue-400 to-indigo-500",
+                        time: "10:34 AM",
+                        msg: "Looks great! The new color palette is 🔥 Implementing it in the component library now.",
+                      },
+                      {
+                        name: "Priya R.",
+                        avatar: "from-violet-400 to-purple-500",
+                        time: "10:35 AM",
+                        msg: "Love the direction. Can we schedule a quick sync this afternoon to align on the typography scale?",
+                      },
+                    ].map((msg) => (
+                      <div key={msg.name} className="flex gap-3">
+                        <div
+                          className={`w-8 h-8 rounded-lg bg-gradient-to-br ${msg.avatar} flex-shrink-0 flex items-center justify-center`}
+                        >
+                          <span className="text-white text-xs font-bold">{msg.name[0]}</span>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-baseline gap-2 mb-1">
+                            <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                              {msg.name}
+                            </span>
+                            <span className="text-xs text-gray-400">{msg.time}</span>
+                          </div>
+                          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {msg.msg}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <span className="text-body-base text-typography-secondary truncate">
-                    Sarah C.
-                  </span>
-                  <span
-                    className="ml-auto w-2 h-2 rounded-full bg-state-success"
-                    aria-hidden="true"
-                  ></span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div
-                    className="relative w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-[8px] text-brand-accent font-bold"
-                    aria-hidden="true"
-                  >
-                    MJ
+
+                  {/* Input */}
+                  <div className="px-4 pb-4">
+                    <div className="flex items-center gap-3 px-4 py-2.5 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10">
+                      <span className="flex-1 text-sm text-gray-400 dark:text-gray-500">
+                        Message #general
+                      </span>
+                      <div className="flex items-center gap-2 text-gray-400">
+                        <div className="w-4 h-4 rounded bg-gray-300 dark:bg-white/20" />
+                        <div className="w-4 h-4 rounded bg-gray-300 dark:bg-white/20" />
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-body-base text-typography-secondary truncate">
-                    Marcus J.
-                  </span>
-                  <span
-                    className="ml-auto w-2 h-2 rounded-full bg-state-success"
-                    aria-hidden="true"
-                  ></span>
-                </div>
-                <div className="flex items-center gap-2 opacity-50">
-                  <div
-                    className="relative w-6 h-6 rounded-full bg-surface-high flex items-center justify-center text-[8px] text-state-muted font-bold"
-                    aria-hidden="true"
-                  >
-                    ER
-                  </div>
-                  <span className="text-body-base text-state-muted truncate">Elena R.</span>
-                  <span
-                    className="ml-auto w-2 h-2 rounded-full bg-state-muted"
-                    aria-hidden="true"
-                  ></span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
-
-      {/* Inline keyframes for the staggered hero animation to avoid global CSS changes */}
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(6px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </section>
   );
 };
